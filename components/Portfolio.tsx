@@ -2,13 +2,14 @@
 
 import Reveal from "@/components/Reveal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
 
 const projects = [
   {
     title: "Sistema de Gestão Financeira",
     description: "Aplicação em .NET para controle de custos e relatórios em tempo real.",
     image: "/mockups/FinancialManagementSystem.png",
-    techs: ["C#", ".NET", "SQL Server", "Next.js"],
+    techs: ["C#", ".NET", "SQL Server", "Next.js"]
   },
   {
     title: "Dashboard de Vendas",
@@ -36,15 +37,21 @@ export default function Portfolio() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, idx) => (
-            <Reveal key={idx} delay={idx * 0.2} direction={idx % 2 === 0 ? "left" : "right"}>
+            <Reveal
+              key={idx}
+              delay={idx * 0.2}
+              direction={idx % 2 === 0 ? "left" : "right"}
+            >
               <Card className="bg-card border border-border shadow-lg text-card-foreground">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={600}
+                    height={400}
                     className="rounded-xl mb-4"
                   />
                   <p className="text-muted-foreground mb-3">{project.description}</p>

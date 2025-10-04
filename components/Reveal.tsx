@@ -13,7 +13,7 @@ export default function Reveal({
   delay = 0,
   direction = "up",
 }: RevealProps) {
-  let initial = { opacity: 0, y: 40 };
+  let initial: { opacity: number; x?: number; y?: number } = { opacity: 0, y: 40 };
   if (direction === "left") initial = { opacity: 0, x: -40 };
   if (direction === "right") initial = { opacity: 0, x: 40 };
 

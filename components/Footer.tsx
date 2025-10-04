@@ -1,6 +1,7 @@
 "use client";
 
 import { FaWhatsapp, FaEnvelope, FaPhone, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,7 +9,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Logo + mini bio */}
         <div>
-          <img src="/LotusTech_Logo.png" alt="LotusTech Logo" className="h-12 mb-4" />
+          <Image
+            src="/LotusTech_Logo.png"
+            alt="Logo da LotusTech - Desenvolvimento de Software Sob Medida"
+            width={120}
+            height={40}
+            className="h-12 mb-4 w-auto"
+          />
           <p className="text-sm">
             A LotusTech desenvolve soluções digitais sob medida para empresas que
             buscam inovação, eficiência e resultados reais.
@@ -48,10 +55,18 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-4">Redes Sociais</h3>
           <div className="flex gap-4">
-            <a href="https://instagram.com/lotustecnologiaoficial" target="_blank" className="hover:text-pink-400">
+            <a
+              href="https://instagram.com/lotustecnologiaoficial"
+              target="_blank"
+              className="hover:text-pink-400"
+            >
               <FaInstagram className="text-2xl" />
             </a>
-            <a href="https://wa.me/5511990149219" target="_blank" className="hover:text-green-400">
+            <a
+              href="https://wa.me/5511990149219"
+              target="_blank"
+              className="hover:text-green-400"
+            >
               <FaWhatsapp className="text-2xl" />
             </a>
           </div>

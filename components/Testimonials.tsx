@@ -2,6 +2,7 @@
 
 import Reveal from "@/components/Reveal";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -40,9 +41,11 @@ export default function Testimonials() {
               <Card className="p-6 rounded-2xl shadow-md">
                 <CardContent>
                   <div className="flex items-center mb-4">
-                    <img
+                    <Image
                       src={t.image}
                       alt={t.name}
+                      width={56}
+                      height={56}
                       className="w-14 h-14 rounded-full mr-4"
                     />
                     <div>
@@ -50,7 +53,9 @@ export default function Testimonials() {
                       <p className="text-sm text-gray-500">{t.role}</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 italic">"{t.text}"</p>
+                  <p className="text-gray-600 italic">
+                    &quot;{t.text}&quot;
+                  </p>
                 </CardContent>
               </Card>
             </Reveal>

@@ -1,28 +1,32 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  const sections = [
-    { href: "#services", label: "Serviços" },
-    { href: "#about", label: "Sobre" },
-    { href: "#portfolio", label: "Portfólio" },
-    { href: "#testimonials", label: "Depoimentos" },
-    { href: "#faq", label: "Duvidas" },
-    { href: "#contact", label: "Contato" },
-  ];
+  // ✅ useMemo para fixar a lista de seções (não muda a cada render)
+  const sections = useMemo(
+    () => [
+      { href: "#services", label: "Serviços" },
+      { href: "#about", label: "Sobre" },
+      { href: "#portfolio", label: "Portfólio" },
+      { href: "#testimonials", label: "Depoimentos" },
+      { href: "#faq", label: "Dúvidas" },
+      { href: "#contact", label: "Contato" },
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
 
-    // Observa cada seção
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -43,7 +47,7 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
-  }, []);
+  }, [sections]);
 
   const whatsappNumber = "5511990149219";
   const whatsappMessage =
@@ -63,10 +67,13 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold text-gradient">
-            <img
+            <Image
               src="/LotusTech_Logo.png"
-              alt="Logo da empresa"
+              alt="Logo da LotusTech - Desenvolvimento de Software Sob Medida"
+              width={120}
+              height={40}
               className="h-12 w-auto"
+              priority
             />
           </Link>
 
@@ -83,7 +90,6 @@ export default function Navbar() {
                 }`}
               >
                 {item.label}
-                {/* underline animada */}
                 <span
                   className={`absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-500 ${
                     activeSection === item.href ? "w-full" : "group-hover:w-full"
@@ -130,7 +136,6 @@ export default function Navbar() {
                 }`}
               >
                 {item.label}
-                {/* underline animada no mobile também */}
                 <span
                   className={`absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-500 ${
                     activeSection === item.href ? "w-full" : ""

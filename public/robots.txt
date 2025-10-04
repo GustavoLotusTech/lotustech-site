@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.lotustecnologia.com.br
+
+# Sitemaps
+Sitemap: https://www.lotustecnologia.com.br/sitemap.xml
