@@ -20,7 +20,9 @@ export const metadata: Metadata = {
   description:
     "Criamos softwares sob medida, aplicativos mobile e integrações para empresas. Transforme ideias em soluções digitais inovadoras com a LotusTech.",
   icons: {
-    icon: "/favicon.ico",
+     icon: "/favicon.ico",
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "LotusTech - Desenvolvimento de Software Sob Medida",
